@@ -105,25 +105,25 @@ fig.write_html("Protein_rmsd")
 fig.show()
 
 #ligand RMSD
-RMSD_ligand=rms.RMSD(u,u,select="resname UNK",ref_frame=0).run()
+RMSD_ligand=rms.RMSD(u,u,select="protein and name CA",groupselections="resname UNK",ref_frame=0).run()
 time_steps=RMSD_ligand.results.rmsd[:, 1]/1000
-RMSD_ligand_results=RMSD_ligand.results.rmsd[:, 2]
+RMSD_ligand_results=RMSD_ligand.results.rmsd[:, 3]
 
-RMSD_2_ligand=rms.RMSD(u_2,u_2,select="resid 167-171",ref_frame=0).run()
+RMSD_2_ligand=rms.RMSD(u_2,u_2,select="protein and name CA and not resid 167-171",groupselections="resid 167-171",ref_frame=0).run()
 time_steps_2=RMSD_2_ligand.results.rmsd[: ,1]/1000
-RMSD_2_ligand_results=RMSD_2_ligand.results.rmsd[: ,2]
+RMSD_2_ligand_results=RMSD_2_ligand.results.rmsd[: ,3]
 
-RMSD_3_ligand=rms.RMSD(u_3,u_3,select="resid 167-171",ref_frame=0).run()
+RMSD_3_ligand=rms.RMSD(u_3,u_3,select="protein and name CA and not resid 167-171",groupselections="resid 167-171",ref_frame=0).run()
 time_steps_3=RMSD_3_ligand.results.rmsd[: ,1]/1000
-RMSD_3_ligand_results=RMSD_3_ligand.results.rmsd[: ,2]
+RMSD_3_ligand_results=RMSD_3_ligand.results.rmsd[: ,3]
 
-RMSD_4_ligand=rms.RMSD(u_4,u_4,select="resid 167-171",ref_frame=0).run()
+RMSD_4_ligand=rms.RMSD(u_4,u_4,select="protein and name CA and not resid 167-171",groupselections="resid 167-171",ref_frame=0).run()
 time_steps_4=RMSD_4_ligand.results.rmsd[: ,1]/1000
-RMSD_4_ligand_results=RMSD_4_ligand.results.rmsd[: ,2]
+RMSD_4_ligand_results=RMSD_4_ligand.results.rmsd[: ,3]
 
-RMSD_5_ligand=rms.RMSD(u_5,u_5,select="resname UNL",ref_frame=0).run()
+RMSD_5_ligand=rms.RMSD(u_5,u_5,select="protein and name CA",groupselections="resname UNL",ref_frame=0).run()
 time_steps_5=RMSD_5_ligand.results.rmsd[: ,1]/1000
-RMSD_5_ligand_results=RMSD_5_ligand.results.rmsd[: ,2]
+RMSD_5_ligand_results=RMSD_5_ligand.results.rmsd[: ,3]
 
 # ligand rmsd plot
 
